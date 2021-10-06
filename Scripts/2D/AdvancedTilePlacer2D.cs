@@ -268,116 +268,116 @@ public class AdvancedTilePlacer2D : MonoBehaviour
 
 
 
-        //if (AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right_forward, tileSize)) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.right_forward, tileSize)))
-        //{
-        //    List<TileData2D> newPossibleTileData = new List<TileData2D>();
+        if (AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right_forward, tileSize)) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.right_forward, tileSize)))
+        {
+            List<TileData2D> newPossibleTileData = new List<TileData2D>();
 
-        //    for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right_forward, tileSize)); i++)
-        //    { 
-        //        bool isSuitable1 = false;
-        //        bool isSuitable2 = false;
+            for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right_forward, tileSize)); i++)
+            {
+                bool isSuitable1 = false;
+                bool isSuitable2 = false;
 
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.forward, tileSize)); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.forward, tileSize))[f], "rightSide", AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i], "leftSide")) isSuitable1 = true;
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.forward, tileSize)); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.forward, tileSize))[f], "rightSide", AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i], "leftSide")) isSuitable1 = true;
 
-        //        }  
+                }
 
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right, tileSize)); f++)
-        //        {
-        //            if (!CheckSuitability(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right, tileSize))[f], "forwardSide", AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i], "backSide")) isSuitable2 = true;
-        //        }
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position.GetDirection(Direction.right, tileSize)); f++)
+                {
+                    if (!CheckSuitability(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right, tileSize))[f], "forwardSide", AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i], "backSide")) isSuitable2 = true;
+                }
 
-        //        if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i]);
-        //    }
+                if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position.GetDirection(Direction.right_forward, tileSize))[i]);
+            }
 
-        //    AdvancedTileGrid2D.ChangeTileCell(position.GetDirection(Direction.right_forward, tileSize), newPossibleTileData);
-        //}
-         
-
-        //if (AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize - Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.left_forward, tileSize)))
-        //{
-        //    List<TileData2D> newPossibleTileData = new List<TileData2D>();
-
-        //    for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize - Vector3.right * tileSize); i++)
-        //    {
-        //        bool isSuitable1 = false;
-        //        bool isSuitable2 = false;
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize)[f], "leftSide", AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i], "rightSide")) isSuitable1 = true;
-        //        } 
-
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.right * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.right * tileSize)[f], "forwardSide", AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i], "backSide")) isSuitable2 = true;
-        //        }
-
-        //        if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i]);
-        //    }
-
-        //    AdvancedTileGrid2D.ChangeTileCell(position + Vector3.forward * tileSize - Vector3.right * tileSize, newPossibleTileData); 
-        //}
+            AdvancedTileGrid2D.ChangeTileCell(position.GetDirection(Direction.right_forward, tileSize), newPossibleTileData);
+        }
 
 
+        if (AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize - Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.left_forward, tileSize)))
+        {
+            List<TileData2D> newPossibleTileData = new List<TileData2D>();
+
+            for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize - Vector3.right * tileSize); i++)
+            {
+                bool isSuitable1 = false;
+                bool isSuitable2 = false;
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.forward * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize)[f], "leftSide", AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i], "rightSide")) isSuitable1 = true;
+                }
+
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.right * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.right * tileSize)[f], "forwardSide", AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i], "backSide")) isSuitable2 = true;
+                }
+
+                if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position + Vector3.forward * tileSize - Vector3.right * tileSize)[i]);
+            }
+
+            AdvancedTileGrid2D.ChangeTileCell(position + Vector3.forward * tileSize - Vector3.right * tileSize, newPossibleTileData);
+        }
 
 
 
 
-        //if (AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize + Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.right_back, tileSize)))
-        //{
-        //    List<TileData2D> newPossibleTileData = new List<TileData2D>();
-
-        //    for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize + Vector3.right * tileSize); i++)
-        //    {
-        //        bool isSuitable1 = false;
-        //        bool isSuitable2 = false;
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize)[f], "rightSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i], "leftSide")) isSuitable1 = true;
-        //        } 
-
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.right * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position + Vector3.right * tileSize)[f], "backSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i], "forwardSide")) isSuitable2 = true;
-        //        }
-
-        //        if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i]);
-        //    }
-
-        //    AdvancedTileGrid2D.ChangeTileCell(position - Vector3.forward * tileSize + Vector3.right * tileSize, newPossibleTileData); 
-        //}
 
 
+        if (AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize + Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.right_back, tileSize)))
+        {
+            List<TileData2D> newPossibleTileData = new List<TileData2D>();
 
-        //if (AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize - Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.left_back, tileSize)))
-        //{
-        //    List<TileData2D> newPossibleTileData = new List<TileData2D>();
+            for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize + Vector3.right * tileSize); i++)
+            {
+                bool isSuitable1 = false;
+                bool isSuitable2 = false;
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize)[f], "rightSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i], "leftSide")) isSuitable1 = true;
+                }
 
-        //    for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize - Vector3.right * tileSize); i++)
-        //    {
-        //        bool isSuitable1 = false;
-        //        bool isSuitable2 = false;
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize)[f], "leftSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i], "rightSide")) isSuitable1 = true;
-        //        } 
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position + Vector3.right * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position + Vector3.right * tileSize)[f], "backSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i], "forwardSide")) isSuitable2 = true;
+                }
 
-        //        for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.right * tileSize); f++)
-        //        {
-        //            if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.right * tileSize)[f], "backSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i], "forwardSide")) isSuitable2 = true;
-        //        }
-        //        if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i]);
-        //    }
+                if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize + Vector3.right * tileSize)[i]);
+            }
 
-        //    AdvancedTileGrid2D.ChangeTileCell(position - Vector3.forward * tileSize - Vector3.right * tileSize, newPossibleTileData); 
-        //}
+            AdvancedTileGrid2D.ChangeTileCell(position - Vector3.forward * tileSize + Vector3.right * tileSize, newPossibleTileData);
+        }
 
-         
+
+
+        if (AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize - Vector3.right * tileSize) != -1 && !AdvancedTileGrid2D.CellIsStay(position.GetDirection(Direction.left_back, tileSize)))
+        {
+            List<TileData2D> newPossibleTileData = new List<TileData2D>();
+
+            for (int i = 0; i < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize - Vector3.right * tileSize); i++)
+            {
+                bool isSuitable1 = false;
+                bool isSuitable2 = false;
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.forward * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize)[f], "leftSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i], "rightSide")) isSuitable1 = true;
+                }
+
+                for (int f = 0; f < AdvancedTileGrid2D.GetTileNumberInCell(position - Vector3.right * tileSize); f++)
+                {
+                    if (CheckSuitability(AdvancedTileGrid2D.GetTileData(position - Vector3.right * tileSize)[f], "backSide", AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i], "forwardSide")) isSuitable2 = true;
+                }
+                if (isSuitable1 && isSuitable2) newPossibleTileData.Add(AdvancedTileGrid2D.GetTileData(position - Vector3.forward * tileSize - Vector3.right * tileSize)[i]);
+            }
+
+            AdvancedTileGrid2D.ChangeTileCell(position - Vector3.forward * tileSize - Vector3.right * tileSize, newPossibleTileData);
+        }
+
+
 
     }
 
-     
+
 
 
     private bool CheckSuitability(TileData2D mainTileData, string mainTileDataSide, TileData2D secondTileData, string secondTileDataSide)
